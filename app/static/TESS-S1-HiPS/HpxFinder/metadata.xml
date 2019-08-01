@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- VOTable HiPS hpxfinder mapping file.
+     Use to map and build from a HpxFinder JSON tile a classical VOTable HiPS tile.
+     Adapt it according to your own (see examples below in the comments)
+-->
+
+<VOTABLE version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.2"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.2 http://www.ivoa.net/xml/VOTable/v1.2">
+ 
+<RESOURCE>
+  <COOSYS ID="J2000" system="eq_FK5" equinox="J2000"/>
+  <TABLE name="TESS details">
+    <FIELD name="RAJ2000" ucd="pos.eq.ra" ref="J2000" datatype="double" precision="5" unit="deg">
+      <DESCRIPTION>Right ascension</DESCRIPTION>
+    </FIELD>
+    <FIELD name="DEJ2000" ucd="pos.eq.dec" ref="J2000" datatype="double" precision="5" unit="deg">
+      <DESCRIPTION>Declination</DESCRIPTION>
+    </FIELD>
+    <FIELD name="id" ucd="meta.id;meta.dataset" datatype="char" arraysize="13*">
+      <DESCRIPTION>Dataset name, uniquely identifies the data for a given exposure.</DESCRIPTION>
+       <!-- Simple HTTP link description (Aladin will open it in a Web navigator)
+         <LINK href="http://your.server.edu/info?param=${id}&amp;otherparam=foo"/>
+       -->
+     </FIELD>
+    <FIELD name="access" datatype="char" arraysize="9*">
+      <DESCRIPTION>Display original image</DESCRIPTION>
+       <LINK content-type="image/fits" href="${access}"/>
+       <!--  Image HTTP link description (Aladin will load it)
+          <LINK content-type="image/fits" href="http://your.server.edu/getdata?param=${id}&amp;otherparam=foo" title="remote img"/>
+        -->
+    </FIELD>
+    <FIELD name="FoV" datatype="char" utype="stc:ObservationLocation.AstroCoordArea.Region" arraysize="12*">
+       <DESCRIPTION>Field of View (STC description)</DESCRIPTION>
+    </FIELD>
+    <!-- Additional Field for extracting Instrument name from original filepath
+         see also associated TD example below
+       <FIELD name="Instrument" datatype="char" arraysize="12*">
+          <DESCRIPTION>Instrument</DESCRIPTION>
+       </FIELD 
+     -->
+<DATA>
+   <TABLEDATA> 
+      <TR>
+      <TD>$[ra]</TD>
+      <TD>$[dec]</TD>
+      <TD>$[name]</TD>
+      <TD>$[path:([^\[]*).*]</TD>
+      <TD>$[stc]</TD>
+      <!-- Extended example via prefix and regular expression mapping
+           (here, the instrument name is coded in the original path after "data" directory)
+           <TD>Instrument: $[path:.*/data/(.+)/.*]</TD> 
+        -->
+      </TR>
+   </TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>
+
