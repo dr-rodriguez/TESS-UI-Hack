@@ -1,17 +1,6 @@
-from flask import Flask, render_template, request, redirect, make_response
-# from bokeh.plotting import figure
-# from bokeh.embed import components
-# from bokeh.models import ColumnDataSource, HoverTool, OpenURL, TapTool
-# import numpy as np
-# from astropy.io import fits
-# from astropy.utils.data import download_file
-# from astropy.wcs import WCS
-# from bokeh.palettes import Spectral4
-# from astroquery.mast import Catalogs, Observations
-# from bokeh.models import DataTable, TableColumn
-# from bokeh.layouts import column, widgetbox
+from flask import Flask, render_template, request
 from lightkurve.search import search_tesscut
-from .utils import interact_widget, simple_ui
+from .utils import simple_ui
 
 app_portal = Flask(__name__)
 
@@ -29,7 +18,7 @@ def get_cut():
     s = search_tesscut(target='TW Hya', sector=9)
     tpf = s.download()
     script, div = simple_ui(tpf)
-    return render_template('lightcurve.html', script=script, div=div)
+    return render_template('lightcurve.html', output_text='Example (TW Hya)', script=script, div=div)
 
 
 @app_portal.route('/get_data', methods=['GET'])
@@ -40,10 +29,21 @@ def get_data():
     print(msg)
 
     # Get the data
-    s = search_tesscut(target='{} {}'.format(ra, dec), sector=1)
-    tpf = s.download()
-    script, div = simple_ui(tpf)
+    try:
+        s = search_tesscut(target='{} {}'.format(ra, dec), sector=1)
+        tpf = s.download()
+        ap_mask = tpf.create_threshold_mask()
+    except Exception as e:
+        msg = 'Could not download data for {} {}. Error: {}'.format(ra, dec, e)
+        print(msg)
+        return render_template('error.html', output_text=msg)
 
-    output_text = 'Lightcurve generated for coordinates: {} {}'.format(ra, dec)
+    script, div = simple_ui(tpf, ap_mask)
 
-    return render_template('lightcurve.html', output_text=output_text, script=script, div=div)
+    output_text = 'TESS data for coordinates: {} {}'.format(ra, dec)
+    if ap_mask.sum() == 0:
+        output_text += '<br>Warning: no pixels above threshold.'
+
+    return render_template('lightcurve.html', output_text=output_text,
+                           script=script, div=div)
+

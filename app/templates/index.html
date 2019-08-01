@@ -26,14 +26,14 @@
     var aladin = A.aladin('#aladin-lite-div', {cooFrame: "ICRS", showFrame: true, showGotoControl: true,
     fov:80, showReticle: false});
 
-    aladin.setBaseImageLayer('P/Mellinger/color');
+<!--    aladin.setBaseImageLayer('P/Mellinger/color');-->
 
     // Load HiPS
     var hips = aladin.createImageSurvey('TESS-S1', 'TESS-S1', '../static/TESS-S1-HiPS',
         'equatorial', 3, {imgFormat: 'png'});
-<!--    aladin.setImageSurvey(hips);-->
-    aladin.setOverlayImageLayer(hips);
-    aladin.getOverlayImageLayer().setAlpha(1.0);
+    aladin.setImageSurvey(hips);
+<!--    aladin.setOverlayImageLayer(hips);-->
+<!--    aladin.getOverlayImageLayer().setAlpha(1.0);-->
 
     aladin.gotoRaDec(22.7, -78.1);
 
