@@ -1,5 +1,5 @@
 <!doctype html>
-<title>David's Super-Secret Portal</title>
+<title>David's Super-Secret TESS UI</title>
 
 <!--<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css" type="text/css" />-->
 <!--<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>-->
@@ -11,7 +11,7 @@
 <script type="text/javascript" src="//code.jquery.com/jquery-1.12.1.min.js" charset="utf-8"></script>
 
 <header id="branding">
-    <h1>David's Super-Secret Portal</h1>
+    <h1>David's Super-Secret TESS UI</h1>
     <ul>
         <li><a href="https://github.com/dr-rodriguez/">GitHub</a></li>
     </ul>
@@ -19,13 +19,45 @@
 
 <div class=page>
 
+<div id='infoDiv'>&nbsp; </div>
 <div id="aladin-lite-div" style="width:600px;height:600px;">
 <script type="text/javascript" src="http://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
 <script type="text/javascript">
-    var aladin = A.aladin('#aladin-lite-div', {cooFrame: "ICRS", showFrame: true, showGotoControl: false,
-    fov:90, showReticle: false});
-    aladin.setImageSurvey(aladin.createImageSurvey('TESS-S1', 'TESS-S1', '../static/TESS-S1-HiPS',
-    'equatorial', 3, {imgFormat: 'png'}));
+    var aladin = A.aladin('#aladin-lite-div', {cooFrame: "ICRS", showFrame: true, showGotoControl: true,
+    fov:80, showReticle: false});
+
+    aladin.setBaseImageLayer('P/Mellinger/color');
+
+    // Load HiPS
+    var hips = aladin.createImageSurvey('TESS-S1', 'TESS-S1', '../static/TESS-S1-HiPS',
+        'equatorial', 3, {imgFormat: 'png'});
+<!--    aladin.setImageSurvey(hips);-->
+    aladin.setOverlayImageLayer(hips);
+    aladin.getOverlayImageLayer().setAlpha(1.0);
+
+    aladin.gotoRaDec(22.7, -78.1);
+
+    // Load catalog (GAIA)
+    var cat = A.catalogHiPS('https://axel.u-strasbg.fr/HiPSCatService/Gaia', {onClick: 'showTable', name: 'GAIA'});
+    aladin.addCatalog(cat);
+
+    // define function triggered when an object is clicked
+    var objClicked;
+    aladin.on('objectClicked', function(object) {
+        var msg;
+        if (object) {
+            objClicked = object;
+          object.select();
+            msg = 'You clicked object located at ' + object.ra + ', ' + object.dec;
+            window.open('/get_data?ra='+ object.ra + '&dec='+ object.dec)
+        }
+        else {
+            objClicked.deselect();
+            msg = '&nbsp; ';
+        }
+        $('#infoDiv').html(msg);
+    });
+
 </script>
 </div>
 
