@@ -1,0 +1,32 @@
+<!doctype html>
+<title>David's Super-Secret Portal</title>
+
+<!--<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.css" type="text/css" />-->
+<!--<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.13.0.min.js"></script>-->
+
+<!--<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.13.0.min.css" type="text/css" />-->
+<!--<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.13.0.min.js"></script>-->
+
+<link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" />
+<script type="text/javascript" src="//code.jquery.com/jquery-1.12.1.min.js" charset="utf-8"></script>
+
+<header id="branding">
+    <h1>David's Super-Secret Portal</h1>
+    <ul>
+        <li><a href="https://github.com/dr-rodriguez/">GitHub</a></li>
+    </ul>
+</header>
+
+<div class=page>
+
+<div id="aladin-lite-div" style="width:600px;height:600px;">
+<script type="text/javascript" src="http://aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var aladin = A.aladin('#aladin-lite-div', {cooFrame: "ICRS", showFrame: true, showGotoControl: false,
+    fov:90, showReticle: false});
+    aladin.setImageSurvey(aladin.createImageSurvey('TESS-S1', 'TESS-S1', '../static/TESS-S1-HiPS',
+    'equatorial', 3, {imgFormat: 'png'}));
+</script>
+</div>
+
+</div>
