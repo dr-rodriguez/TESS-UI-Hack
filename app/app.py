@@ -30,8 +30,8 @@ def get_data():
 
     # Get the data
     try:
-        s = search_tesscut(target='{} {}'.format(ra, dec), sector=1)
-        tpf = s.download()
+        s = search_tesscut(target='{} {}'.format(ra, dec))
+        tpf = s[0].download()
         ap_mask = tpf.create_threshold_mask()
     except Exception as e:
         msg = 'Could not download data for {} {}. Error: {}'.format(ra, dec, e)
@@ -42,7 +42,7 @@ def get_data():
 
     output_text = 'TESS data for coordinates: {} {}'.format(ra, dec)
     if ap_mask.sum() == 0:
-        output_text += '<br>Warning: no pixels above threshold.'
+        output_text += '<br>Warning: encountered issue determining pixels to use for lightcurve.'
 
     return render_template('lightcurve.html', output_text=output_text,
                            script=script, div=div)
