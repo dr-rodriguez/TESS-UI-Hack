@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from lightkurve.search import search_tesscut
+from lightkurve.targetpixelfile import TessTargetPixelFile
 from .utils import simple_ui
 
 app_portal = Flask(__name__)
@@ -15,8 +16,7 @@ def app_home():
 
 @app_portal.route('/test')
 def get_cut():
-    s = search_tesscut(target='TW Hya', sector=9)
-    tpf = s.download()
+    tpf = TessTargetPixelFile('app/static/astrocut_165.47079_-34.70688_10x10px.zip')
     script, div = simple_ui(tpf)
     return render_template('lightcurve.html', output_text='Example (TW Hya)', script=script, div=div)
 
