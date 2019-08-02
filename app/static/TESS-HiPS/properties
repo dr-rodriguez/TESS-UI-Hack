@@ -25,7 +25,7 @@ obs_title            = TESS
 #em_max              = Stop in spectral coordinates in meters
 hips_builder         = Aladin/HipsGen v10.117
 hips_version         = 1.4
-hips_release_date    = 2019-08-02T15:15Z
+hips_release_date    = 2019-08-02T18:03Z
 hips_frame           = equatorial
 hips_order           = 3
 hips_order_min       = 0
@@ -38,12 +38,12 @@ hips_data_range      = -35.6 158.2
 hips_pixel_scale     = 0.01431
 s_pixel_scale        = 1
 dataproduct_type     = image
-moc_sky_fraction     = 0.1198
-hips_estsize         = 134396
-hipsgen_date         = 2019-08-02T15:15Z
+moc_sky_fraction     = 0.1536
+hips_estsize         = 172376
+hipsgen_date         = 2019-08-02T18:02Z
 hipsgen_params       = maxthread=20 in=Cutouts out=TESS-HiPS creator_did=ivo://STScI/TESS
-hips_creation_date   = 2019-08-02T15:15Z
-hipsgen_date_1       = 2019-08-02T15:15Z
+hips_creation_date   = 2019-08-02T18:02Z
+hipsgen_date_1       = 2019-08-02T18:03Z
 hipsgen_params_1     = maxthread=20 in=Cutouts out=TESS-HiPS creator_did=ivo://STScI/TESS
 #____FOR_COMPATIBILITY_WITH_OLD_HIPS_CLIENTS____
 label                = TESS
