@@ -33,14 +33,20 @@ def get_data():
         s = search_tesscut(target='{} {}'.format(ra, dec))
         tpf = s[0].download()
         ap_mask = tpf.create_threshold_mask()
+        num_sectors = len(s)
     except Exception as e:
-        msg = 'Could not download data for {} {}. Error: {}'.format(ra, dec, e)
+        try:
+            num_sectors = len(s)
+        except:
+            num_sectors = 0
+
+        msg = 'Data found for {} sectors.<br>Could not download data for {} {}.<br>Error: {}'.format(num_sectors, ra, dec, e)
         print(msg)
         return render_template('error.html', output_text=msg)
 
     script, div = simple_ui(tpf, ap_mask)
 
-    output_text = 'TESS data for coordinates: {} {}'.format(ra, dec)
+    output_text = 'Data found for {} sectors.<br>TESS data for coordinates: {} {}'.format(num_sectors, ra, dec)
     if ap_mask.sum() == 0:
         output_text += '<br>Warning: encountered issue determining pixels to use for lightcurve.'
 
