@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+   <script type="text/javascript" src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+   <link rel="stylesheet" href="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.css" >
+   <script type="text/javascript">var jqMenu = jQuery.noConflict();</script>
+   <script type="text/javascript">
+var hipsDir=null;</script>
+</HEAD>
+<H1>"TESS" progressive survey</H1>
+This Web resource contains HiPS(*) components for <B>TESS</B> progressive survey.
+<script type="text/javascript">
+hipsDir = location.href;
+hipsDir = hipsDir.substring(0,hipsDir.lastIndexOf("/",hipsDir.length));
+document.getElementById("hipsBase").innerHTML=hipsDir;
+</script>
+<TABLE>
+<TR>
+<TD>
+   <script type="text/javascript" src="//aladin.u-strasbg.fr/AladinLite/api/v2/latest/aladin.min.js" charset="utf-8"></script>
+<div id="aladin-lite-div" style="width:350px;height:350px;"></div>
+<script type="text/javascript">
+//var hipsDir = location.href;
+//hipsDir = hipsDir.substring(0,hipsDir.lastIndexOf("/",hipsDir.length));
+var aladin = $.aladin("#aladin-lite-div");
+aladin.setImageSurvey(aladin.createImageSurvey('TESS', 'TESS',
+hipsDir, 'equatorial', 3, {imgFormat: 'png'}));
+</script>    
+</TD>
+<TD>
+<UL>
+   <LI> <B>Label:</B> TESS
+   <LI> <B>Type:</B> HiPS image
+   <LI> <B>Best pixel angular resolution:</B> 51.53"
+   <LI> <B>Max tile order:</B> 3 (NSIDE=8)
+   <LI> <B>Available encoding tiles:</B> png fits
+   <LI> <B>Tile size:</B> 512x512
+   <LI> <B>FITS tile BITPIX:</B> -32
+   <LI> <B>Processing date:</B> 2019-08-02T14:05Z
+   <LI> <B>HiPS builder:</B> Aladin/HipsGen v10.117
+   <LI> <B>Coordinate frame:</B> equatorial
+   <LI> <B>Sky area:</B> 8.203% of sky => 3384°^2
+   <LI> <B>Associated coverage map:</B> <A HREF="Moc.fits">MOC</A>
+   <LI> <B>Original data access template:</B> <A HREF="HpxFinder/metadata.xml">metadata.xml</A>
+   <LI> <B>Raw property file:</B> <A HREF="properties">properties</A>
+   <LI> <B>Base URL:<p id="hipsBase"></p></B> 
+</UL>
+</TD>
+</TR>
+</TABLE>
+This survey can be displayed by <A HREF="//aladin.u-strasbg.fr/AladinLite">Aladin Lite</A> (see above), 
+by <A HREF="//aladin.u-strasbg.fr/java/nph-aladin.pl?frame=downloading">Aladin Desktop</A> client
+(just open the base URL)<BR>or any other HiPS aware clients.
+<HR>
+<I>(*) HiPS is a recommended <A HREF="www.ivoa.net">International Virtual Observatory Alliance</A> standard:<A HREF="www.ivoa.net/documents/HiPS">HiPS REC</A>. 
+The HiPS technology allows a dedicated client to access an astronomical survey at any location and at any scale. 
+HiPS has been invented by <A HREF="//aladin.u-strasbg.fr/hips">CDS-Universit&eacute; de Strasbourg/CNRS</A> (<A HREF="//cdsads.u-strasbg.fr/abs/2015A%26A...578A.114F">2015A&amp;A...578A.114F</A>). It is based on HEALPix sky tessellation and it is designed for astronomical scientifical usages (low distorsion, true pixel values...).</I><script type="text/javascript">
+document.getElementById("hipsBase").innerHTML=hipsDir;
+</script>
+</HTML>

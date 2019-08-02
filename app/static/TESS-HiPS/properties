@@ -1,0 +1,54 @@
+hips_initial_fov     = 100.0
+hips_initial_ra      = 314.38582
+hips_initial_dec     = -47.53358
+creator_did          = ivo://STScI/P/TESS
+hips_pixel_bitpix    = -32
+data_pixel_bitpix    = -32
+hips_sampling        = bilinear
+hips_overlay         = mean
+hips_hierarchy       = median
+#hips_creator        = HiPS creator (institute or person)
+#hips_copyright      = Copyright mention of the HiPS
+obs_title            = TESS
+#obs_collection      = Dataset collection name
+#obs_description     = Dataset text description
+#obs_ack             = Acknowledgement mention
+#prov_progenitor     = Provenance of the original data (free text)
+#bib_reference       = Bibcode for bibliographic reference
+#bib_reference_url   = URL to bibliographic reference
+#obs_copyright       = Copyright mention of the original data
+#obs_copyright_url   = URL to copyright page of the original data
+#t_min               = Start time in MJD ( =(Unixtime/86400)+40587  or https://heasarc.gsfc.nasa.gov/cgi-bin/Tools/xTime/xTime.pl)
+#t_max               = Stop time in MJD
+#obs_regime          = Waveband keyword (Radio Infrared Optical UV X-ray Gamma-ray)
+#em_min              = Start in spectral coordinates in meters ( =2.998E8/freq in Hz, or =1.2398841929E-12*energy in MeV )
+#em_max              = Stop in spectral coordinates in meters
+hips_builder         = Aladin/HipsGen v10.117
+hips_version         = 1.4
+hips_release_date    = 2019-08-02T14:05Z
+hips_frame           = equatorial
+hips_order           = 3
+hips_order_min       = 0
+hips_tile_width      = 512
+#hips_service_url    = ex: http://yourHipsServer/null
+hips_status          = public master clonableOnce
+hips_tile_format     = png fits
+hips_pixel_cut       = 12.93 91.74
+hips_data_range      = -35.6 158.2
+hips_pixel_scale     = 0.01431
+s_pixel_scale        = 1
+dataproduct_type     = image
+moc_sky_fraction     = 0.08203
+hips_estsize         = 92035
+hipsgen_date         = 2019-08-02T14:05Z
+hipsgen_params       = maxthread=20 in=Cutouts out=TESS-S1-HiPS creator_did=ivo://STScI/TESS
+hips_creation_date   = 2019-08-02T14:05Z
+hipsgen_date_1       = 2019-08-02T14:05Z
+hipsgen_params_1     = maxthread=20 in=Cutouts out=TESS-S1-HiPS creator_did=ivo://STScI/TESS
+#____FOR_COMPATIBILITY_WITH_OLD_HIPS_CLIENTS____
+label                = TESS
+coordsys             = C
+maxOrder             = 3
+format               = png fits
+pixelCut             = 12.93 91.74
+pixelRange           = -35.6 158.2

@@ -1,0 +1,14 @@
+creator_did          = ivo://STScI/P/TESS/meta
+obs_title            = TESS-meta
+dataproduct_type     = meta
+hips_frame           = equatorial
+hips_order           = 3
+hips_order_min       = 0
+hips_release_date    = 2019-08-02T14:05Z
+hips_version         = 1.4
+hips_builder         = Aladin/HipsGen v10.117
+#____FOR_COMPATIBILITY_WITH_OLD_HIPS_CLIENTS____
+label                = TESS-meta
+coordsys             = C
+maxOrder             = 3
+hips_tile_width      = 512
