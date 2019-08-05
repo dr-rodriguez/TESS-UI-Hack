@@ -25,7 +25,7 @@ obs_title            = TESS
 #em_max              = Stop in spectral coordinates in meters
 hips_builder         = Aladin/HipsGen v10.117
 hips_version         = 1.4
-hips_release_date    = 2019-08-02T18:03Z
+hips_release_date    = 2019-08-05T16:05Z
 hips_frame           = equatorial
 hips_order           = 3
 hips_order_min       = 0
@@ -38,17 +38,32 @@ hips_data_range      = -35.6 158.2
 hips_pixel_scale     = 0.01431
 s_pixel_scale        = 1
 dataproduct_type     = image
-moc_sky_fraction     = 0.1536
-hips_estsize         = 172376
-hipsgen_date         = 2019-08-02T18:02Z
-hipsgen_params       = maxthread=20 in=Cutouts out=TESS-HiPS creator_did=ivo://STScI/TESS
-hips_creation_date   = 2019-08-02T18:02Z
-hipsgen_date_1       = 2019-08-02T18:03Z
-hipsgen_params_1     = maxthread=20 in=Cutouts out=TESS-HiPS creator_did=ivo://STScI/TESS
+moc_sky_fraction     = 0.08333
+hips_estsize         = 93496
+hipsgen_date         = 2019-08-02T20:59Z
+hipsgen_params       = -live maxthread=20 in=Cutouts/s0001 out=./TESS-HiPS creator_did=ivo://STScI/TESS
+hips_creation_date   = 2019-08-02T20:59Z
+hipsgen_date_1       = 2019-08-02T20:59Z
+hipsgen_params_1     = -live maxthread=20 in=Cutouts/s0001 out=./TESS-HiPS creator_did=ivo://STScI/TESS
+pixelRange           = -35.6 158.2
+addendum_id          = APPEND/P/1564779638
+addendum_id          = APPEND/P/1564779825
+addendum_id          = APPEND/P/1565021003
+hipsgen_date_2       = 2019-08-02T21:02Z
+hipsgen_params_2     = "out=\"./TESS-HiPS\"" "in=\"./TESS-HiPS/AddsHiPS\"" CONCAT
+hipsgen_date_3       = 2019-08-02T21:02Z
+hipsgen_params_3     = "out=\"./TESS-HiPS\"" "in=\"./TESS-HiPS/AddsHiPS\"" CONCAT
+hipsgen_date_4       = 2019-08-02T21:05Z
+hipsgen_params_4     = "out=\"./TESS-HiPS\"" "in=\"./TESS-HiPS/AddsHiPS\"" CONCAT
+hipsgen_date_5       = 2019-08-02T21:05Z
+hipsgen_params_5     = "out=\"./TESS-HiPS\"" "in=\"./TESS-HiPS/AddsHiPS\"" CONCAT
+hipsgen_date_6       = 2019-08-05T16:05Z
+hipsgen_params_6     = "out=\"./TESS-HiPS\"" "in=\"./TESS-HiPS/AddsHiPS\"" CONCAT
+hipsgen_date_7       = 2019-08-05T16:05Z
+hipsgen_params_7     = "out=\"./TESS-HiPS\"" "in=\"./TESS-HiPS/AddsHiPS\"" CONCAT
 #____FOR_COMPATIBILITY_WITH_OLD_HIPS_CLIENTS____
 label                = TESS
 coordsys             = C
 maxOrder             = 3
 format               = png fits
 pixelCut             = 12.93 91.74
-pixelRange           = -35.6 158.2
